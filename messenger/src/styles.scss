@@ -4,6 +4,14 @@
   --primary-color: #ae7aff;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   background-color: var(--dark-color);
   color: var(--light-color);
@@ -16,7 +24,8 @@ body {
   display: inline;
   font-size: 12px;
   font-weight: 700;
-  margin: 4px;
+  line-height: 24px;
+  height: 24px;
 }
 
 .btn {

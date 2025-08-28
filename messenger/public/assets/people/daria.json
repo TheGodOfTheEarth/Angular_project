@@ -1,0 +1,12 @@
+{
+  "id": 0,
+  "username": "light-b0lb",
+  "avatarUrl": "assets/images/avatar.jpg",
+  "subscribersAmount": 289,
+  "firstName": "Дарья",
+  "lastName": "Матвейчук",
+  "isActive": true,
+  "stack": ["Angular", "React", "HTML", "CSS", "JavaScript"],
+  "city": "Istra",
+  "description": "Я очень люблю своего парня и ещё занимаюсь frontend-разработкой"
+}

@@ -1,6 +1,7 @@
 :host {
   display: block;
   padding: 20px 12px;
+  position: relative;
 }
 
 .main-menu-list {
@@ -59,4 +60,35 @@
   height: 10px;
   margin: 6px;
   color: var(--primary-color);
+}
+
+.sidebar__footer {
+  background: var(--dark-hover-color);
+  border-radius: 2px;
+  padding: 4px 16px;
+  display: grid;
+  grid-template-columns: 32px 1fr 16px;
+  align-items: center;
+  grid-gap: 12px;
+
+  position: absolute;
+  bottom: 20px;
+
+  img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+  }
+
+  .username-text {
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .settings-btn {
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
 }

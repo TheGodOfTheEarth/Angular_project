@@ -42,3 +42,21 @@
   width: 14px;
   height: 14px;
 }
+
+.to-subscribers {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.to-subscribers-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.to-subscribers-icon {
+  width: 10px;
+  height: 10px;
+  margin: 6px;
+  color: var(--primary-color);
+}

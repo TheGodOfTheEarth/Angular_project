@@ -30,7 +30,27 @@
 
     <label class="tt-form-label">
       <span class="tt-form-label__text">Навыки</span>
-      <input type="text" class="tt-form-input" formControlName="stack" />
+      <textarea
+        (keydown.enter)="onTagSet($event)"
+        [(ngModel)]="tagSet"
+        rows="1"
+        class="tt-form-input tt-textarea__skills"
+        formControlName="stack"
+      ></textarea>
+      <div class="tags__wrapper">
+        @for (tag of tags; track $index) {
+        <div class="tag__wrapper">
+          <div class="chip">{{ tag }}</div>
+          <button
+            class="chip-del"
+            (click)="onTagDel(tag)"
+            [value]="tag"
+          ></button>
+        </div>
+        } @empty {
+        <div></div>
+        }
+      </div>
     </label>
   </div>
 

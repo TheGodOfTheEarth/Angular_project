@@ -12,7 +12,8 @@
   padding: 32px;
   border: 1px solid var(--light-color);
   background: var(--dark-color);
-  height: calc(100dvh - (24px * 4));
+  //   height: calc(100dvh - (24px * 4));
+  height: 100%;
 }
 
 .profile-form {
@@ -24,4 +25,61 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+}
+
+.tt-textarea__skills {
+  height: 26px;
+  resize: none;
+  scrollbar-width: none;
+}
+
+.tags__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tag__wrapper {
+  display: flex;
+  font-size: 12px;
+  padding: 4px;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  align-items: center;
+  gap: 4px;
+}
+
+.chip {
+}
+
+.chip-del {
+  height: 14px;
+  width: 14px;
+  cursor: pointer;
+  background: inherit;
+  position: relative;
+  border: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 1px;
+    transform: rotate(45deg);
+    left: 0;
+    top: 6.5px;
+    background: var(--light-color);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 1px;
+    transform: rotate(-45deg);
+    left: 0;
+    top: 6.5px;
+    background: var(--light-color);
+  }
 }

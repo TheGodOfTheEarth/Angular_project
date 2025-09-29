@@ -22,7 +22,7 @@
 </header>
 
 <main class="profile-page__body">
-  <div class=""></div>
+  <app-post-feed></app-post-feed>
 
   <div class="">
     <h3 class="h6 mb16">Подписчики</h3>
@@ -38,6 +38,16 @@
       }
       <a class="to-subscriber-search" [routerLink]="['/search']"></a>
     </div>
+
+    <h3 class="h6 mb16">Навыки</h3>
+    <div class="stack-wrapper mb32">
+      @for (skill of ['123', '4567', '890', '102938']; track skill) {
+      <div class="skill-tag">{{ skill }}</div>
+      }
+    </div>
+
+    <h3 class="h6 mb16">О себе</h3>
+    <p class="medium-text">{{ profile.description }}</p>
   </div>
 </main>
 }

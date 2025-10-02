@@ -29,8 +29,14 @@
     </label>
 
     <label class="tt-form-label">
+      <span class="tt-form-label__text">Аватарка</span>
+      <app-avatar-upload></app-avatar-upload>
+    </label>
+
+    <label class="tt-form-label">
       <span class="tt-form-label__text">Навыки</span>
       <textarea
+        placeholder="Введи навык и нажми 'enter'"
         (keydown.enter)="onTagSet($event)"
         [(ngModel)]="tagSet"
         rows="1"

@@ -8,10 +8,16 @@ import {
 } from '@angular/forms';
 import { ProfileService } from '../../data/services/profile.service';
 import { firstValueFrom } from 'rxjs';
+import { AvatarUploadComponent } from './avatar-upload/avatar-upload.component';
 
 @Component({
   selector: 'app-settings-page',
-  imports: [ProfileHeaderComponent, ReactiveFormsModule, FormsModule],
+  imports: [
+    ProfileHeaderComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    AvatarUploadComponent,
+  ],
   templateUrl: './settings-page.component.html',
   styleUrl: './settings-page.component.scss',
 })
@@ -30,7 +36,21 @@ export class SettingsPageComponent {
   constructor() {
     effect(() => {
       // @ts-ignore
-      this.form.patchValue(this.profileService.me());
+      this.form.patchValue({
+        ...this.profileService.me(),
+        //@ts-ignore
+        stack: this.mergeStack(this.profileService.me()?.stack),
+      });
+
+      if (this.profileService.me()?.stack) {
+        //@ts-ignore
+        this.tags = this.profileService.me()?.stack;
+      }
+
+      if (this.tagSet) {
+        this.tagSet = '';
+      }
+      console.log();
     });
   }
 
@@ -41,7 +61,29 @@ export class SettingsPageComponent {
     if (this.form.invalid) return;
 
     // @ts-ignore
-    firstValueFrom(this.profileService.patchProfile(this.form.value));
+    firstValueFrom(
+      //@ts-ignore
+      this.profileService.patchProfile({
+        ...this.form.value,
+        stack: this.splitStack(this.tags),
+      })
+    );
+  }
+
+  splitStack(stack: string | null | string[] | undefined) {
+    if (!stack) return [];
+
+    if (Array.isArray(stack)) return stack;
+
+    return stack.split(',');
+  }
+
+  mergeStack(stack: string | null | string[] | undefined) {
+    if (!stack) return '';
+
+    if (Array.isArray(stack)) return stack.join(',');
+
+    return stack;
   }
 
   tagSet!: string;
@@ -52,11 +94,15 @@ export class SettingsPageComponent {
 
     if (
       this.tagSet == '' ||
+      this.tagSet == ' ' ||
       this.tagSet == null ||
       this.tagSet == '\n' ||
-      this.tagSet == '\r\n'
-    )
+      this.tagSet == '\r\n' ||
+      this.tags.join(this.tagSet)
+    ) {
+      this.tagSet = '';
       return;
+    }
 
     this.tags.push(this.tagSet);
 

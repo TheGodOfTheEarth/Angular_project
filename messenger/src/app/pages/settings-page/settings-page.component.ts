@@ -98,7 +98,7 @@ export class SettingsPageComponent {
       this.tagSet == null ||
       this.tagSet == '\n' ||
       this.tagSet == '\r\n' ||
-      this.tags.join(this.tagSet)
+      this.tags.includes(this.tagSet)
     ) {
       this.tagSet = '';
       return;

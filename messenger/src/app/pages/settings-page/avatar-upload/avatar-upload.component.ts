@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class AvatarUploadComponent {
   preview = signal<string>('/assets/images/avatar.jpg');
 
-  avatar = null;
+  avatar: File | null = null;
 
   fileBrowserHandler(event: Event) {
     const file = (event.target as HTMLInputElement)?.files?.[0];
@@ -32,5 +32,6 @@ export class AvatarUploadComponent {
     };
 
     reader.readAsDataURL(file);
+    this.avatar = file;
   }
 }

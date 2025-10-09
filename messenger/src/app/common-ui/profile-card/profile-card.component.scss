@@ -5,6 +5,8 @@
   grid-template-columns: repeat(2, 1fr) 250px 1fr;
   grid-gap: 32px;
   font-family: "JetBrains Mono";
+  max-width: 71.6vw;
+  overflow-x: hidden;
 
   .avatar-name {
     display: grid;
@@ -22,6 +24,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+
+  .profile-card__description {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .h6 {
